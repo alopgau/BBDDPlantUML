@@ -1,0 +1,37 @@
+@startchen
+entity Profesor {
+dni <<key>>
+nombre
+dirección
+tlf
+relationship imparte {
+}
+entity Módulo {
+Código <<key>>
+nombre
+}
+entity Alumno {
+nº expediente <<key>>
+Nombre
+apellidos
+fecha_nac
+}
+relationship se_matricula {
+
+}
+entity Curso {
+}
+relationship pertenece {
+}
+relationship delega {
+}
+Profesor -(1,N)- imparte
+imparte -(0,N)- Módulo
+Alumno -(1,N)- se_matricula
+se_matricula -(0,N)- Módulo
+Alumno -(0,N)- pertenece
+pertenece -(0,1)- Curso
+Alumno -(0,N)- delega
+delega -(0,1)- Curso
+
+@endchen

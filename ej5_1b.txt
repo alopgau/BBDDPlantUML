@@ -1,0 +1,26 @@
+@startchen
+entity Médico {
+Nombre
+Apellidos
+Teléfono
+Especialidad
+DNI <<key>>
+}
+entity Ingreso {
+Código <<key>>
+Habitación
+Cama
+Fecha de ingreso
+}
+relationship atiende {
+}
+entity Paciente {
+Tarjeta sanitaria <<key>>
+}
+relationship realiza {
+}
+Médico -(0,1)- atiende
+atiende -(0,N)- Ingreso
+Paciente -(1,1)- realiza
+realiza -(0,N)- Ingreso
+@endchen

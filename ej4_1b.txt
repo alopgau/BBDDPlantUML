@@ -36,7 +36,7 @@ relationship se_hace {
 Cliente -(0,1)- compra
 compra -(1,N)- Coche
 Coche -(1,1)- pasa
-pasa -(1,N)- Revisión
+pasa -(0,N)- Revisión
 Revisión -(0,N)- se_hace
 se_hace -(0,N)- Cambio
 @endchen

@@ -1,0 +1,34 @@
+@startchen
+entity Producto {
+código <<key>>
+precio
+desc
+existencias
+}
+entity Proveedor {
+Código <<key>>
+Nombre
+Apellidos
+Provincia
+Tlf
+}
+
+entity Cliente {
+Código <<key>>
+Nombre
+Apellidos
+Dirección
+Teléfono
+}
+relationship compra {
+fecha
+}
+
+relationship suministra {
+}
+
+
+Proveedor -(0,N)- suministra
+suministra -(0,N) Producto
+Cliente -(0,N)- compra
+compra -(0,N)- Producto

@@ -1,0 +1,53 @@
+@startchen
+entity Embarcación {
+Mátricula <<key>>
+Nombre
+Tipo
+Dimensiones
+}
+relationship pertenece {
+}
+entity Socio {
+DNI <<key>>
+Nombre
+Tlf
+Fecha ingreso
+}
+relationship asignado {
+
+}
+entity Amarre <<weak>> {
+Número <<key>>
+Agua
+Luz
+Fecha asignación
+}
+entity Zona {
+Letra <<key>>
+Tipo barcos
+Profundidad
+Anchura
+} 
+entity Empleado {
+Código <<key>>
+Nombre
+Dirección
+Teléfono
+Especialidad
+relationship a cargo de {
+}
+relationship tiene {
+}
+relationship compra {
+fecha
+}
+
+Embarcación -(1,1)- pertenece
+pertenece -(1,1)- Amarre
+Socio -(1,1)- tiene
+tiene -(1,1)- Embarcación
+Zona -(0,N)- asignado
+asignado -(1,1)- Amarre
+Socio -(1,N)- compra
+compra -(1,1)- Amarre 
+@endchen

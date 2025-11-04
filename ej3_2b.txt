@@ -1,0 +1,77 @@
+@startchen
+entity Selección {
+Código <<key>>
+Nombre
+Goles
+Camiseta
+}
+entity Jugador {
+DNI <<key>>
+País
+Fecha nacimiento
+Clubes ultimo año
+Goles
+}
+entity Partido {
+Fecha
+Resultado
+}
+entity Control <<weak>> {
+Fecha y hora <<key>>
+Lugar
+}
+entity Hotel {
+Código <<key>>
+Nombre
+Dirección
+Teléfono
+}
+entity Árbitro {
+DNI <<key>>
+}
+
+entity Sede {
+sede <<key>>
+
+entity Club {
+Club <<key>>
+}
+relationship juega {
+
+}
+relationship aloja {
+Nº habitación
+}
+
+relationship pertenece {
+
+}
+relationship se_somete {
+
+}
+relationship arbitra {
+rol
+}
+relationship se_disputa {
+}
+relationship equipo1 {
+}
+relationship equipo2 {
+}
+Jugador -(1,N)- pertenece
+pertenece -(1,1)- Selección
+Selección -(1,1)- equipo1
+Selección -(1,1)- equipo2
+equipo1 -(0,N)- Partido
+equipo2 -(0,N)- Partido
+Jugador -(1,1)- se_somete
+se_somete -(0,N)- Control
+Partido -(0,N)- arbitra
+arbitra -(4,4)- Árbitro
+Selección -(1,1)- aloja
+aloja -(1,1)- Hotel
+Partido -(1,1)- se_disputa
+se_disputa -(1,1)- Sede 
+Partido -(0,N)- juega
+juega -(0,N)- Jugador
+@endchen

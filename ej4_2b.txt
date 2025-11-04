@@ -1,0 +1,57 @@
+@startchen
+entity Departamento {
+    Código <<key>>
+    Nombre
+    Presupuesto
+}
+relationship ubicado {
+
+}
+entity Centro_de_trabajo {
+    Código <<key>>
+    Nombre
+    Población
+    Dirección
+}
+entity Empleado {
+    Telefóno
+    Fecha de alta
+    NIF <<key>>
+    Nombre
+}
+
+relationship tiene {
+
+}
+
+entity Hijo {
+Código <<key>>
+Nombre
+Fecha_ncimiento
+}
+
+relationship capaz_de {
+
+}
+
+relationship dirige {
+
+}
+
+relationship pertenece {
+}
+
+entity Habilidades {
+    Código <<key>>
+    Descripción
+}
+Empleado -(0,N)- capaz_de
+capaz_de -(0,N)- Habilidades
+Empleado -(1,N)- tiene
+tiene -(0,N)- Hijo
+Departamento -(1,N)- ubicado
+ubicado -(1,1)- Centro_de_trabajo
+Empleado -(1,1)- dirige
+dirige -(0,N)- Centro_de_trabajo
+Empleado -(1,N)- pertenece
+pertenece -(1,1)- Departamento

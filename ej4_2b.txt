@@ -1,0 +1,39 @@
+entity Departamento {
+    Código <<key>>
+    Nombre
+    Presupuesto
+}
+relationship ubicado {
+
+}
+entity Centro_de_trabajo {
+    Código <<key>>
+    Nombre
+    Población
+    Dirección
+}
+entity Empleado {
+    Telefóno
+    Fecha de alta
+    NIF <<key>>
+    Nombre
+}
+
+relationship tiene {
+
+}
+
+entity Hijos {
+Código <<key>>
+Nombre
+Fecha_ncimiento
+}
+
+relationship capaz_de {
+
+}
+
+entity Habilidades {
+    Código <<key>> 
+    Descripción
+}

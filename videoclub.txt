@@ -1,0 +1,58 @@
+@startchen
+entity Película {
+    Código <<key>>
+    Nombre
+    Duración
+}
+entity Socio {
+    DNI <<key>>
+    Nombre
+    Apellidos
+    Dirección
+    Teléfono
+}
+relationship alquila {
+
+}
+relationship dirige {
+
+}
+entity Director {
+    Código <<key>>
+    Nombre
+    Nº peliculas
+}
+entity Actor {
+Código <<key>>
+Nombre 
+}
+relationship actua {
+}
+entity Género {
+
+}
+entity Estado {
+
+}
+entity Copia <<weak>> {
+
+}
+relationship tiene {
+
+}
+relationship está_en {
+Descripcion
+}
+
+
+Socio -(1,N)- alquila
+alquila -(0,N)- Copia
+Director -(1,N)- dirige
+dirige -(1,N)- Película
+Actor -(0,N)- actua
+actua -(1,N)- Película
+Película -(1,1)- tiene
+tiene -(0,N)- Copia
+Copia -(1,N)- está_en
+está_en -(1,1)- Estado
+@endchen

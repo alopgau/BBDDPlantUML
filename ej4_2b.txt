@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 @startchen
->>>>>>> 2edadc6042e26778949eb583a17a5631f0c7c9c8
 entity Departamento {
     Código <<key>>
     Nombre
@@ -27,11 +24,7 @@ relationship tiene {
 
 }
 
-<<<<<<< HEAD
-entity Hijos {
-=======
 entity Hijo {
->>>>>>> 2edadc6042e26778949eb583a17a5631f0c7c9c8
 Código <<key>>
 Nombre
 Fecha_ncimiento
@@ -41,12 +34,10 @@ relationship capaz_de {
 
 }
 
-<<<<<<< HEAD
 entity Habilidades {
     Código <<key>> 
     Descripción
 }
-=======
 relationship dirige {
 
 }
@@ -68,4 +59,3 @@ Empleado -(1,1)- dirige
 dirige -(0,N)- Centro_de_trabajo
 Empleado -(1,N)- pertenece
 pertenece -(1,1)- Departamento
->>>>>>> 2edadc6042e26778949eb583a17a5631f0c7c9c8

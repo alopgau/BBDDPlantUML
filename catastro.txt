@@ -1,0 +1,47 @@
+@startchen
+entity Zona {
+Nombre <<key>>
+}
+entity Bloque {
+Número <<key>>
+}
+relationship pertenece {
+
+}
+relationship está {
+
+}
+entity Persona {
+Nombre
+Apellidos
+DNI 
+Nº habitante <<key>>
+
+}
+relationship habita {
+
+}
+relationship se_construyen {
+
+}
+entity Calle {
+Nombre <<key>>
+}
+
+relationship hay {
+}
+entity Piso {
+
+}
+
+Persona -(0,N)- habita
+habita -(0,1)- Piso
+Piso -(0,N)- pertenece
+pertenece -(1,1)- Persona
+Calle -(1,1)- se_construyen
+se_construyen -(0,N)- Bloque
+Zona -(1,1)- está
+está -(1,N)- Calle
+Bloque -(1,1)- hay
+hay -(1,N)- Piso
+@endchen

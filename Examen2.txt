@@ -1,0 +1,85 @@
+@startchen
+
+entity Vecino {
+DNI <<<key>>
+Nombre
+Dirección
+Teléfono
+}
+
+entity Evaluación <<weak>> {
+Fecha <<key>>
+Estado
+}
+
+relationship solicita {
+fecha
+}
+
+relationship posee {
+
+}
+
+entity Finca {
+RefCatastro <<key>>
+Dirección
+}
+
+relationship se_realiza <<identifying>> {
+
+}
+entity Municipio {
+Nombre
+Superficie
+}
+
+relationship censado {
+
+}
+
+relationship se_ubica {
+
+}
+
+entity ParqueBomberos {
+Nombre
+Dirección
+Nº Vehiculos
+Nº efectivos
+}
+
+
+entity Bombero {
+DNI <<key>>
+Nombre
+Categoría
+Rango
+}
+
+relationship destinado {
+
+}
+
+relationship realiza {
+
+}
+
+Vecino -(0,N)- posee
+posee -(0,N)- Finca
+Evaluación -(0,3)- se_realiza
+se_realiza -(1,1)- Finca
+Vecino -(1,1)- solicita
+solicita -(0,N)- Evaluación
+Finca -(1,N)- se_ubica
+se_ubica -(1,1)- Municipio
+Vecino -(1,N)- censado
+censado -(1,1)- Municipio
+ParqueBomberos -(0,N)- se_ubica
+se_ubica -(1,1)- Municipio
+Bombero -(0,N)- destinado
+destinado -(1,1)- ParqueBomberos
+Bombero -(0,4)- realiza
+realiza -(1,1)- Evaluación
+@endchen
+Hay que garantizar que el estado de la evaluación pertenezca a uno de los siguientes, satisfactorio, no satisfactorio, pendiente de evaluar
+En caso de ser satisfactorio o no satisfactorio, el minimo de bomberos que realizan la evaluación será 1

@@ -1,0 +1,21 @@
+Ejss hoja I
+Actor: {dni PK, nombre, nacionalidad, fecha}
+Personaje: {cod_personaje PK, nombre, tipo_actor, dni_actor FK(actor.dni)}
+
+Si permite nulos:
+Actor: {dni PK, nombre, nacionalidad, fecha}
+Personaje: {cod_personaje PK, nombre, tipo_actor, dni_actor FK(actor.dni)}
+interpreta: {dni PK FK(Actor.dni), cod_personaje FK(personaje.codigo)}
+Ej hoja II b
+Autor: { id_autor PK, nombre, apellidos, fecha_nac}
+escribe: { id_autor PK FK (autor.id_autor) cod_doc PK FK (documento.cod_doc)}
+Documento: {cod_doc PK, titulo, fecha_publicacion}
+Ej hoja II e
+Alumno: { dni PK, nombre, apellidos, curso }
+Examen: { cod_examen, asignatura, tipo_examen}
+realiza: { dni_alumno FK (alumno.dni),
+	   cod_examen FK (Examen.cod_examen),
+	   nota
+	   fecha_realizacion
+	   PK (dni_alumno, cod_examen) }
+
